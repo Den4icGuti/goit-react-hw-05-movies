@@ -48,7 +48,7 @@ fetchCast.proptype = {
 export const fetchReviews = async (movId) => { 
   try {
     const response = await axios.get(`/movie/${movId}/reviews?api_key=${API_KEY}`);
-    return response.data
+    return response.data.results
   } catch (error) { 
     return error.message
   }

@@ -11,7 +11,6 @@ export const Reviews = () => {
   
   useEffect(() => { 
     fetchReviews(movId)
-      .then(res => res.results)
       .then(setMov)
   }, [movId])
   
