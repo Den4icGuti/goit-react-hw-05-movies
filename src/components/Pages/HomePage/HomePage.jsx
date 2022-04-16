@@ -2,12 +2,11 @@ import { useState, useEffect } from "react";
 import { traidingMovie } from "services/services";
 import PropType from 'prop-types';
 import { Link } from "react-router-dom";
-import { useRouteMatch } from "react-router";
 import styles from '../HomePage/HomePage.module.css';
 
 export const Home = () => { 
   const [mov, setMov] = useState(null);
-  const {url} = useRouteMatch()
+
   useEffect(() => { 
     traidingMovie()
       .then(res => res.results)

@@ -17,3 +17,17 @@ traidingMovie.proptype = {
   API_KEY: PropType.string.isRequired
 }
 
+export const detailsMovie = async (movId) => { 
+  try {
+    const response = await axios.get(`/movie/${movId}?api_key=${API_KEY}`);
+    return response.data
+  } catch (error) { 
+    return error.message
+  }
+}
+
+detailsMovie.proptype = {
+  API_KEY: PropType.string.isRequired,
+  movId:PropType.number.isRequired
+}
+
