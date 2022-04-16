@@ -1,17 +1,14 @@
+import { Container } from "./Container/Container";
+import { Navigation } from "./Navigation/Navigation";
+import { Home } from "./Pages/HomePage/HomePage";
+import { Route } from "react-router-dom";
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        textTransform: 'uppercase',
-        color: '#010101',
-      }}
-    >
-      React homework template
-    </div>
+    <Container>
+      <Navigation />
+      <Route path='/' exact>
+        <Home/>
+      </Route>
+   </Container>
   );
 };
