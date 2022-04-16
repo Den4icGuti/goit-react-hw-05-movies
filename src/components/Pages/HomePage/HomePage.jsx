@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { traidingMovie } from "services/services";
+import PropType from 'prop-types';
 import { Link } from "react-router-dom";
+import { useRouteMatch } from "react-router";
 import styles from '../HomePage/HomePage.module.css';
 
 export const Home = () => { 
   const [mov, setMov] = useState(null);
-  
-
+  const {url} = useRouteMatch()
   useEffect(() => { 
     traidingMovie()
       .then(res => res.results)
@@ -19,7 +20,7 @@ export const Home = () => {
       <ul className={styles.listTranding}>
         {mov && mov.map(mov => <li className={styles.item} key={mov.id}>
           <img src={`https://image.tmdb.org/t/p/w300/${mov.poster_path}`} alt={mov.title } />
-          <Link >
+          <Link to={`/movies/${mov.id}`}>
             <p className={styles.titleLink}>{mov.title}</p>
           </Link>
          
@@ -27,4 +28,10 @@ export const Home = () => {
       </ul>
   </div>
   )
+}
+
+Home.proptype = {
+  id: PropType.number.isRequired,
+  title: PropType.string.isRequired,
+  poster_path:PropType.string.isRequired
 }
