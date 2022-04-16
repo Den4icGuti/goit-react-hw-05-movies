@@ -45,4 +45,16 @@ fetchCast.proptype = {
   movId:PropType.number.isRequired
 }
 
+export const fetchReviews = async (movId) => { 
+  try {
+    const response = await axios.get(`/movie/${movId}/reviews?api_key=${API_KEY}`);
+    return response.data
+  } catch (error) { 
+    return error.message
+  }
+}
 
+fetchReviews.proptype = {
+  API_KEY: PropType.string.isRequired,
+  movId:PropType.number.isRequired
+}

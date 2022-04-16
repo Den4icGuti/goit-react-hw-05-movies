@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react";
 import { useParams, Link, useRouteMatch,Route } from "react-router-dom";
 import { Cast } from "../Cast/Cast";
+import { Reviews } from "../Reviews/Reviews";
 import { detailsMovie } from "services/services";
 import styles from '../MovieDetailsPage/MovieDetails.module.css';
 
@@ -16,7 +17,7 @@ export const MovieDetails = () => {
 
   return (
     <div className={styles.wrapper}>
-     {mov && (
+      {mov && (
         <>
           <img className={styles.img} src={`https://image.tmdb.org/t/p/w300/${mov.poster_path}`} alt={mov.original_title} />
           <div className={styles.descr}>
@@ -32,20 +33,19 @@ export const MovieDetails = () => {
                 <Link to={`${url}/cast`}>Cast</Link>
               </li>
               <li>
-                {/* <Link to={`${url}/review`}>Review</Link> */}
+                <Link to={`${url}/reviews`}>Review</Link>
               </li>
             </ul>
-          <hr />
-            <Route path={`/movies/:movId`}>
-              <Cast/>
+            <hr />
+            <Route path='/movies/:movId/cast'>
+              <Cast />
             </Route>
-
-           </div>
-         
+            <Route path='/movies/:movId/reviews'>
+                <Reviews/>
+              </Route>
+          </div>
         </>
-        
-       
       )}
     </div>
-  )
+  );
 }
