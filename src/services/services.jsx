@@ -31,3 +31,18 @@ detailsMovie.proptype = {
   movId:PropType.number.isRequired
 }
 
+export const fetchCast = async (movId) => { 
+  try {
+    const response = await axios.get(`/movie/${movId}/credits?api_key=${API_KEY}`);
+    return response.data
+  } catch (error) { 
+    return error.message
+  }
+}
+
+fetchCast.proptype = {
+  API_KEY: PropType.string.isRequired,
+  movId:PropType.number.isRequired
+}
+
+

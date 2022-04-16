@@ -1,0 +1,31 @@
+.listActors{
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item{
+  flex-basis: calc(100% / 2 - 30px);
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.defCard{
+  width: 300px;
+  height: 300px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  background-color: rgb(123, 154, 182);
+}
+
+.cardText{
+  width: 285px;
+  height: auto;
+  padding: 8px;
+  background-color: rgb(65, 72, 173);
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+}
