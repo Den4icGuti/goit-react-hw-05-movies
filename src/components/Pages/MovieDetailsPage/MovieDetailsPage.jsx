@@ -43,7 +43,7 @@ export const MovieDetails = () => {
             </ul>
             <hr />
           <Routes>
-            <Route path='/movies/:movId/cast' element={<Cast/>}/>
+            <Route path='/movies/:movId/cast'  element={<Cast/>}/>
             <Route path='/movies/:movId/reviews' element={<Reviews/>}/>
           </Routes>
         </div>
