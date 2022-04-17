@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
 import { useParams, Link, useRouteMatch, Route } from "react-router-dom";
+import PropType from 'prop-types';
 import { useHistory } from "react-router-dom";
 import { Cast } from "../Cast/Cast";
 import { Reviews } from "../Reviews/Reviews";
@@ -55,4 +56,13 @@ export const MovieDetails = () => {
       )}
     </div>
   );
+}
+
+MovieDetails.proptype = {
+  id: PropType.number.isRequired,
+  poster_path: PropType.string.isRequired,
+  vote_average: PropType.number.isRequired,
+  release_date: PropType.string.isRequired,
+  overview: PropType.string.isRequired,
+  tagline:PropType.string.isRequired
 }
