@@ -16,9 +16,23 @@ export const Reviews = () => {
   
   return (
     <>
-      {mov && (<div>
-        <p>dwqqwd</p>
-      </div>)}
+
+      {mov && (
+        <>
+          {mov && (
+            <ul>
+              {mov && mov.map(mov => <li key={mov.id}>
+                <div className={styles.boxReviews}>
+                  <h2 className={styles.title}>Author: SWITCH</h2>
+                  <p>{mov.content}</p>
+                  <h2 className={styles.title}>Author: msbreviews</h2>
+                  <p>{mov.author}</p>
+                </div>
+              </li>)}
+            </ul>
+          )}
+          {mov.length === 0 && (<p>We don't haveany reviews for this movie.</p>)}
+        </>)}
     </>
-)
+  );
 } 
