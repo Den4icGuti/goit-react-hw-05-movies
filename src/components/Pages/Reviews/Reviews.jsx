@@ -16,8 +16,7 @@ export const Reviews = () => {
   
   return (
     <>
-
-      {mov && (
+    {mov && (
         <>
           {mov && (
             <ul>
@@ -36,3 +35,9 @@ export const Reviews = () => {
     </>
   );
 } 
+
+Reviews.proptype = {
+  id: PropType.number.isRequired,
+  content: PropType.string.isRequired,
+  author:PropType.string.isRequired
+}

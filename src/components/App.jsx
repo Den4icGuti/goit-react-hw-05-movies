@@ -1,6 +1,7 @@
 import { Container } from "./Container/Container";
 import { Navigation } from "./Navigation/Navigation";
 import { Home } from "./Pages/HomePage/HomePage";
+import { MoviesPage } from './Pages/MoviesPage/MoviesPage';
 import { Route,Switch,Redirect } from "react-router-dom";
 import { MovieDetails } from "./Pages/MovieDetailsPage/MovieDetailsPage";
 
@@ -16,8 +17,10 @@ export const App = () => {
       <Route path='/movies/:movId'>
         <MovieDetails/>
         </Route>
-        <Redirect to ='/' exact/>
-        </Switch>
+        <Route path='/movies'>
+          <MoviesPage/>
+        </Route>
+      </Switch>
     </Container>
   );
 };
