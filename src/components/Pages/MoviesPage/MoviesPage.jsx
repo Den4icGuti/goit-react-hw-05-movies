@@ -1,6 +1,9 @@
-import { useState,useEffect } from "react"
+import { useState, useEffect } from "react";
+import { useSearchParams, useLocation } from "react-router-dom";
+
 export const MoviesPage = () => { 
   const [mov, setMov] = useState('')
+  
   
   const onHandleInput = e => { 
     setMov(e.currentTarget.value)
@@ -16,8 +19,8 @@ export const MoviesPage = () => {
       alert('dqdqw')
       return;
     }
-    setMov({mov:mov})
     Reset()
+  
   }
 
   
