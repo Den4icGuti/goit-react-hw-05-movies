@@ -58,3 +58,17 @@ fetchReviews.proptype = {
   API_KEY: PropType.string.isRequired,
   movId:PropType.number.isRequired
 }
+
+export const fetchSearchMovie = async (query) => { 
+  try {
+    const response = await axios.get(`/search/movie?query=${query}&api_key=${API_KEY}`);
+    return response.data.results
+  } catch (error) { 
+    return error.message
+  }
+}
+
+fetchSearchMovie.proptype = { 
+  API_KEY: PropType.string.isRequired,
+  query:PropType.string.isRequired
+}

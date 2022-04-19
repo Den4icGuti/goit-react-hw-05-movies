@@ -35,16 +35,16 @@ export const MovieDetails = () => {
             <hr />
             <ul>
               <li>
-                <Link to='/cast'>Cast</Link>
+                <Link to='cast'>Cast</Link>
               </li>
               <li>
-                <Link to='/reviews'>Review</Link>
+                <Link to='reviews'>Review</Link>
               </li>
             </ul>
             <hr />
           <Routes>
-            <Route path='/movies/:movId/cast'  element={<Cast/>}/>
-            <Route path='/movies/:movId/reviews' element={<Reviews/>}/>
+            <Route path='cast'  element={<Cast/>}/>
+            <Route path='reviews' element={<Reviews/>}/>
           </Routes>
         </div>
         </>

@@ -1,0 +1,36 @@
+.form{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: rgb(95, 102, 206);
+  padding: 10px;
+}
+
+.title{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item{
+flex-basis: calc(100% / 3 - 30px);
+margin-left: 30px;
+margin-top: 30px;
+}
+
+.link{
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  width: 284px;
+  padding: 8px;
+  background-color: rgb(58, 82, 161);
+  color: #fff;
+}
+
