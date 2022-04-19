@@ -4,7 +4,7 @@ import PropType from 'prop-types';
 import { Link } from "react-router-dom";
 import styles from '../HomePage/HomePage.module.css';
 
-export const Home = () => { 
+ const Home = () => { 
   const [mov, setMov] = useState(null);
 
   useEffect(() => { 
@@ -32,5 +32,7 @@ export const Home = () => {
 Home.proptype = {
   id: PropType.number.isRequired,
   title: PropType.string.isRequired,
-  poster_path:PropType.string.isRequired
+  poster_path:PropType.node.isRequired
 }
+
+export default Home;

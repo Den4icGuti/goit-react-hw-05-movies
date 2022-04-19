@@ -5,7 +5,7 @@ import { fetchCast } from "services/services";
 import styles from '../Cast/Cast.module.css';
 
 
-export const Cast = () => { 
+ const Cast = () => { 
   const [cast, setCast] = useState(null);
   const { movId } = useParams()
 
@@ -37,3 +37,6 @@ Cast.protype = {
   name: PropType.string.isRequired,
   character:PropType.string.isRequired
 }
+
+
+export default Cast;

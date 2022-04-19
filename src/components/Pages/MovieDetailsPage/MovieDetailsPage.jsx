@@ -1,31 +1,28 @@
-import { useState,useEffect } from "react";
+import { useState,useEffect,lazy,Suspense } from "react";
 import { useParams, Link, Route,Routes} from "react-router-dom";
 import PropType from 'prop-types';
-import { Cast } from "../Cast/Cast";
-import { Reviews } from "../Reviews/Reviews";
 import { detailsMovie } from "services/services";
 import styles from '../MovieDetailsPage/MovieDetails.module.css';
 
-export const MovieDetails = () => { 
+const Cast = lazy(() => import("../Cast/Cast"));
+const Reviews = lazy(() => import("../Reviews/Reviews"));
+
+
+ const MovieDetails = () => { 
   const [mov, setMov] = useState('');
   const { movId } = useParams();
-  //  const { url } = useRouteMatch();
-  // const hist = useHistory();
   
   useEffect(() => { 
     detailsMovie(movId).then(setMov)
   },[movId])
 
-
   return (
     
     <div className={styles.wrapper}>
       {mov && (
-        
-        <>
+      <>
           <img className={styles.img} src={`https://image.tmdb.org/t/p/w300/${mov.poster_path}`} alt={mov.original_title} />
           <div className={styles.descr}>
-               
             <h2>{mov.original_title} / Release date: {mov.release_date}</h2>
             <p className={styles.score}>Use score: {mov.vote_average * 10}</p>
             <p className={styles.descrText}>Overwiev:</p>
@@ -42,10 +39,12 @@ export const MovieDetails = () => {
               </li>
             </ul>
             <hr />
+        <Suspense fallback={<p>Please wait....loading...</p>}>
           <Routes>
             <Route path='cast'  element={<Cast/>}/>
             <Route path='reviews' element={<Reviews/>}/>
           </Routes>
+        </Suspense>
         </div>
         </>
       )}
@@ -61,3 +60,5 @@ MovieDetails.proptype = {
   overview: PropType.string.isRequired,
   tagline:PropType.string.isRequired
 }
+
+export default MovieDetails;

@@ -4,7 +4,7 @@ import PropType from 'prop-types';
 import { fetchReviews } from "services/services";
 import styles from '../Reviews/Reviews.module.css';
 
-export const Reviews = () => { 
+ const Reviews = () => { 
   const [mov, setMov] = useState(null);
   const { movId } = useParams()
  
@@ -41,3 +41,5 @@ Reviews.proptype = {
   content: PropType.string.isRequired,
   author:PropType.string.isRequired
 }
+
+export default Reviews;
