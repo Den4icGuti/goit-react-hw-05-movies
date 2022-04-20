@@ -1,5 +1,5 @@
 [build]
-bublish="build"
+publish="build"
 
 [[redirects]]
 from="/*"
