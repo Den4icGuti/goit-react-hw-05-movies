@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PropType from 'prop-types';
-import { useSearchParams,Link,useLocation,useNavigate } from "react-router-dom";
+import { useSearchParams,Link,useLocation } from "react-router-dom";
 import { fetchSearchMovie } from 'services/services';
 import styles from '../MoviesPage/MoviesPage.module.css';
 
@@ -10,12 +10,10 @@ import styles from '../MoviesPage/MoviesPage.module.css';
   const MoviesPage = () => { 
   const [mov, setMov] = useState(null);
    const [searchParms, setSearchParams] = useSearchParams();
-   const navigate = useNavigate();
    const currentQuery = searchParms.get('query');
    const location = useLocation();
    const notify = () => toast.warn('The field must not be empty');
-   const goBack = () => navigate('/')
-
+   
    
    
   useEffect(() => { 
@@ -52,7 +50,7 @@ import styles from '../MoviesPage/MoviesPage.module.css';
       
        {mov && (
          <>
-           <button className={styles.btnBack} onClick={goBack}> Go back</button>
+          
            <h1 className={styles.title}>SEARCHING RESULTS</h1>
            {mov.length > 0 && (
             

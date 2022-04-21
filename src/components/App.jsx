@@ -12,13 +12,15 @@ export const App = () => {
     <Container>
       <Navigation />
       <Suspense fallback={<p>Loading....</p>}>
-      <Routes>
+        <Routes>
         <Route path='/'  element={<Home/>}/>
         <Route path='movies/:movId/*' element={<MovieDetails/>}/>
         <Route path='/movies' element={<MoviesPage/>}/>
         <Route path="*" element={<Home />} />
-      </Routes>
-        </Suspense>
+        </Routes>
+        
+      </Suspense>
+      
     </Container>
   );
 };
