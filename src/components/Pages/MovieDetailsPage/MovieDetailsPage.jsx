@@ -13,7 +13,7 @@ const Reviews = lazy(() => import("../Reviews/Reviews"));
    const { movId } = useParams();
    const navigate = useNavigate();
 
-   const goBack = () => navigate('/status')
+   const goBack = () => navigate('/')
   
   useEffect(() => { 
     detailsMovie(movId).then(setMov)
